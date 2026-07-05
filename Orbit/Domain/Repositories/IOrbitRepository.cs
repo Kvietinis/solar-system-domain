@@ -6,6 +6,8 @@ namespace Orbit.Domain.Repositories
     {
         Task<OrbitAggregate> Load(Guid? id);
 
+        Task<OrbitAggregate> LoadByObjectId(Guid id);
+
         Task Store(OrbitAggregate aggregate);
     }
 }

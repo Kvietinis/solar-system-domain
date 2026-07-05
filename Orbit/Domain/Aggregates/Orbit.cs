@@ -9,9 +9,16 @@ namespace Orbit.Domain.Aggregates
 
         public Guid Id { get; private set; } = Guid.NewGuid();
 
+        public Guid ObjectId { get; private set; } = Guid.NewGuid();
+
         public Velocity Velocity { get; private set; } = Velocity.FromDouble(0);
 
         public Trajectory Trajectory { get; private set; } = Trajectory.FromDouble(0);
+
+        public void ChangeObjectId(Guid objectId)
+        {
+            ObjectId = objectId;
+        }
 
         public void ChangeTrajectoryOrVelocity(Trajectory? trajectory, Velocity? velocity)
         {
@@ -30,7 +37,7 @@ namespace Orbit.Domain.Aggregates
                 Velocity = velocity;
             } 
 
-            _events.Add(new TrajectoryOrVelocityChanged { Id = Id, Trajectory = trajectory, Velocity = velocity });
+            _events.Add(new TrajectoryOrVelocityChanged { Id = Id, Trajectory = Trajectory, Velocity = Velocity });
         }
 
         public IIsDomainEvent[] GetEvents()

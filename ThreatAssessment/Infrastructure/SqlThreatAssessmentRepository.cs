@@ -1,32 +1,32 @@
-﻿using Orbit.Domain;
-using Orbit.Domain.Repositories;
-using OrbitAggregate = Orbit.Domain.Aggregates.Orbit;
+﻿using ThreatAssessment.Domain;
+using ThreatAssessment.Domain.Repositories;
+using ThreatAssessmentAggregate = ThreatAssessment.Domain.Aggregates.ThreatAssessment;
 
-namespace Orbit.Infrastructure
+namespace ThreatAssessment.Infrastructure
 {
-    public class SqlOrbitRepository(IDomainEventDispatcher dispatcher) : IOrbitRepository
+    public class SqlThreatAssessmentRepository(IDomainEventDispatcher dispatcher) : IThreatAssessmentRepository
     {
         private readonly IDomainEventDispatcher _dispatcher = dispatcher;
 
-        public Task<OrbitAggregate> Load(Guid? id)
+        public Task<ThreatAssessmentAggregate> Load(Guid? id)
         {
             if (!id.HasValue)
             {
-                return Task.FromResult(new OrbitAggregate());
+                return Task.FromResult(new ThreatAssessmentAggregate());
             }
 
             // gets DB entity or entities from DBContext and creates Aggregate
             throw new NotImplementedException();
         }
 
-        public Task<OrbitAggregate> LoadByObjectId(Guid objectId)
+        public Task<ThreatAssessmentAggregate> LoadByOrbitId(Guid orbitId)
         {
-            // try get by objectId if not return default
+            // try get by orbitId if not return default
 
             throw new NotImplementedException();
         }
 
-        public async Task Store(OrbitAggregate aggregate)
+        public async Task Store(ThreatAssessmentAggregate aggregate)
         {
             try
             {
