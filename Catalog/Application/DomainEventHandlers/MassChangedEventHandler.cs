@@ -12,7 +12,7 @@ namespace Catalog.Application.DomainEventHandlers
         {
             var integrationEvent = ToIntegrationEvent(domainEvent);
 
-            await _publisher.Publish(integrationEvent);
+            await _publisher.Publish(integrationEvent).ConfigureAwait(false);
         }
 
         private static SolarSystemObjectChanged ToIntegrationEvent(MassChanged domainEvent)
