@@ -1,0 +1,49 @@
+[
+  {
+    "ContainingType": "Catalog.Api.Controllers.SolarSystemObjectsController",
+    "Method": "Post",
+    "RelativePath": "api/v1/SolarSystemObjects",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createCommand",
+        "Type": "Catalog.Application.Commands.SolarSystemObjectUpsertCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Catalog.Api.Controllers.SolarSystemObjectsController",
+    "Method": "Put",
+    "RelativePath": "api/v1/SolarSystemObjects/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateCommand",
+        "Type": "Catalog.Application.Commands.SolarSystemObjectUpsertCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
