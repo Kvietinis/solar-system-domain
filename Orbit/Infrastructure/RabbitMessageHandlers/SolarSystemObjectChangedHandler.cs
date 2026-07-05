@@ -2,6 +2,6 @@
 {
     public class SolarSystemObjectChangedHandler
     {
-        // handling Rabbit message and calling SolarSystemObjectChangedEventHandler
+        // handling Rabbit message and calling Application.IntegrationEventHandlers.SolarSystemObjectChangedEventHandler
     }
 }

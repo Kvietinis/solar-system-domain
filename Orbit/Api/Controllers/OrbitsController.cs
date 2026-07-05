@@ -11,18 +11,18 @@ namespace Orbit.Api.Controllers
         private readonly UpdateOrbit _updateOrbitUseCase = updateOrbitUseCase;
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> Post(OrbitUpsertCommand createCommand)
+        public async Task<ActionResult<Guid>> Post(OrbitUpsertCommand command)
         {
-            var result = await _updateOrbitUseCase.Execute(createCommand).ConfigureAwait(false);
-            var uri = $"api/v1/solarsystemobjects/{result}";
+            var result = await _updateOrbitUseCase.Execute(command).ConfigureAwait(false);
+            var uri = $"api/v1/orbits/{result}";
 
             return Created(uri, result);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Post(OrbitUpsertCommand createCommand, Guid id)
+        public async Task<ActionResult> Put(OrbitUpsertCommand command, Guid id)
         {
-            await _updateOrbitUseCase.Execute(createCommand, id).ConfigureAwait(false);
+            await _updateOrbitUseCase.Execute(command, id).ConfigureAwait(false);
 
             return NoContent();
         }

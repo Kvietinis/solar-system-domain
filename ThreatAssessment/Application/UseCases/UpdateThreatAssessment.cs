@@ -13,7 +13,7 @@ namespace ThreatAssessment.Application.UseCases
         {
             var aggregate = id.HasValue ?
                 await _repository.Load(id).ConfigureAwait(false) :
-                await _repository.LoadByOrbitId(command.OrbitId);
+                await _repository.LoadByOrbitId(command.OrbitId).ConfigureAwait(false);
 
             var severity = await _calculator.ByTrajectoryAndVelocity(command.Trajectory, command.Velocity);
 

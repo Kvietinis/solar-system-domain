@@ -12,7 +12,7 @@ namespace Orbit.Application.UseCases
         {
             var aggregate = id.HasValue ?
                 await _repository.Load(id).ConfigureAwait(false) :
-                await _repository.LoadByObjectId(command.SolarSystemObjectId);
+                await _repository.LoadByObjectId(command.SolarSystemObjectId).ConfigureAwait(false);
 
             aggregate.ChangeObjectId(command.SolarSystemObjectId);
             aggregate.ChangeTrajectoryOrVelocity(Trajectory.FromDouble(command.Trajectory), Velocity.FromDouble(command.Velocity));

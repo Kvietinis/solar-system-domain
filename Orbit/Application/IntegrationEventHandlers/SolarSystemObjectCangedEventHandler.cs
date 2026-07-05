@@ -19,7 +19,7 @@ namespace Orbit.Application.IntegrationEventHandlers
         {
             var command = await ToCommand(message);
 
-            await _updateOrbitUseCase.Execute(command, message.Id).ConfigureAwait(false);
+            await _updateOrbitUseCase.Execute(command).ConfigureAwait(false);
         }
 
         private async Task<OrbitUpsertCommand> ToCommand(SolarSystemObjectChangedDto dto)
